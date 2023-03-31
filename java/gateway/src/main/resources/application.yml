@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+      - id: cache-poc
+        uri: lb://cache-poc
+        predicates:
+          - Path=/cache-poc/**
+        filters:
+          - StripPrefix=1
